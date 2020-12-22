@@ -1,0 +1,117 @@
+#########
+# Step 1
+Code affected: none
+Created this file.
+
+#########
+# Step 2
+Code affected: all .java files
+Reformatted using the Google Java style formatter.
+
+#########
+# Step 3
+Code affected: Fish.turnAround
+Flaw: unnecessary if, leading to duplicate code.
+Fix: replaced if statement with a single assignment statement.
+
+#########
+# Step 4
+Code affected: all .java files
+Flaw: public instance attributes where can be set to private.
+Fix: replaced public to private if possible, other wise package protected.
+
+#########
+# Step 5
+Code affected: Fish.reverseAppearance
+Flaw: adding strings slows down the code.
+Fix: use StringBuilder.append can be faster than adding strings.
+
+#########
+# Step 6
+Code affected: Fish.java
+Flaw: unclear variables representing the coordinates of x, y.
+Fix: rename the variables r to y, c to x, and reorganize the order of the coordinates of the entire
+    class, make it constant to (y, x).
+
+#########
+# Step 7
+Code affected: Bubble.java
+Flaw: unorganized variables x, y.
+Fix: reorganized the variables x, y and related methods to make it match Fish.
+
+#########
+# Step 8
+Code affected: Bubble.java, FishTankManager.java
+Flaw: duplicate codes in methods floatStraightUp(), floatLeftUp(), floatRightUp().
+Fix: there three methods can be combined to one method floatBubble()
+    and the variable d is unnecessary since it changes all the time.
+
+#########
+# Step 9
+Code affected: Seaweed.java
+Flaw: unordered codes when declaring variables and inconsistent variable names,
+    duplicate codes in method draw() and unused variable.
+Fix: moved the declaration of variables my_curr_row and my_curr_col and renamed to y and x.
+    combined cases in Seaweed.draw() to reduce duplicates, and removed variable color.
+
+#########
+# Step 10
+Code affected: Seaweed.java
+Flaw: unclear variables representing the coordinates of x, y and adding strings slows down the code
+    in method reverseAppearance().
+Fix: renamed variables to stay consistent, and copied same code from Fish.reverseAppearance().
+
+#########
+# Step 11
+Code affected: Fish.java, Bubble.java, Seaweed.java, HungryFish.java
+Flaw: duplicate codes with in multiple classes.
+Fix: created an abstract class MarineLife which generates duplicate methods and variables.
+    another inheritance in HungryFish due to high repeatability.
+
+#########
+# Step 12
+Code affected: FishTankManager.java, Fish.java
+Flaw: unnecessary use of 2-D ArrayList for variable myLittleFishes,
+    ends up with waste of looping time for methods draw() and update().
+Fix: change 2-D ArrayList to ArrayList.
+
+#########
+# Step 13
+Code affected: all .java files
+Flaw: static variable myLittleFishes limits the creation of FishTankManager.
+Fix: change myLittleFishes to private instance variable.
+
+#########
+# Step 14
+Code affected: all .java files
+Flaw: accessibility of variables and methods not limited accurately.
+Fix: Made all instance variables private and provided setters and getters, and limited accessibility modifiers.
+
+#########
+# Step 15
+Code affected: Fish.move(), Bubble.floatBubble(), FishTankManager.java
+Flaw: Fishes are swimming out of the tank and bubbles are still stored when out of tank.
+Fix: limited the area that fishes are able to move and removed unnecessary bubbles.
+
+#########
+# Step N-1
+Bug fixed in step 15
+
+#########
+# Step N
+Code affected: Snail.java, Seaweed.java, FishTankManager.java
+- The new item is a snail.
+- It moves at the bottom of the tank, if it is not at the bottom, it drops to the bottom then starts moving.
+- It eats seaweed at the bottom of the tank.
+
+#########
+# Step N+1
+Code affected: Fish.java, Snail.java
+Flaw: Bloaters: long methods in Fish.java, methods reverseAppearance() and move() are too long.
+Fix: Extract methods, we split these methods into multiple shorter methods.
+
+#########
+# Step N+2
+Code affected: Seaweed.java, Snail.java, FishTankManager.java
+- Added new features of Seaweed, Seaweed.grow() makes the seaweed slowly grows back to its original length.
+- Snails moves slowly at the bottom of the tank.
